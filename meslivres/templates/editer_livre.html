@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Editer un livre</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <!-- Le lien vers le fichier CSS de Select2 -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/css/select2.min.css" rel="stylesheet" />
+</head>
+<body>
+    <div class="container">
+        <h1 class="mt-5">Editer un livre</h1>
+        <form method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <a href="{%url 'ajouter_auteur'%}" class="btn btn-link mt-3">Ajouter un auteur</a>
+            <button type="submit" class="btn btn-primary mt-3">Enregistrer les modifications</button>
+        </form>
+    </div>
+    
+
+    <!-- Ajoutez le script JavaScript de Select2 -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/js/select2.min.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function() {
+            // Initialiser Select2 sur le champ auteurs
+            $('#id_auteurs').select2();
+        });
+    </script>
+</body>
+</html>
